@@ -15,7 +15,7 @@ function App() {
       content: content,
       completed: false
     };
-    setTodos(todos.concat(todo));
+    setTodos(todos.concat(todo)); // todos배열에 concat으로 새로운 todo항목 추가, 그다음 setTodos로 업데이트
     nextId.current += 1;
   };
 
@@ -28,7 +28,7 @@ function App() {
   };
 
   const handleRemoveTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(todos.filter(todo => todo.id !== id)); // 인자로 받은 id와 다른 id들로만으로 배열 새로 생성
   };
 
   const completedTodos = todos.filter(todo => todo.completed);
