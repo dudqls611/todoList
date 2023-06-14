@@ -1,71 +1,56 @@
-import React, { useState } from "react";
-import "./App.css";
-import Button from "./components/Button";
-import Userrr from "./components/User";
+import React, { useState, useRef } from 'react';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
-const App = () => {
-  const [users, setUsers] = useState([
-    { id: 1, age: 30, name: "송중기" },
-    { id: 2, age: 24, name: "송강" },
-    { id: 3, age: 21, name: "김유정" },
-    { id: 4, age: 29, name: "구교환" },
-  ]);
 
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+// 메인
+function App() {
+  const nextId = useRef(1);
+  const [todos, setTodos] = useState([]);
 
-  const nameChangeHandler = (event) => {
-    setName(event.target.value);
-  };
-
-  const ageChangeHandler = (event) => {
-    setAge(event.target.value);
-  };
-
-  // 추가
-  const clickAddButtonHandler = () => {
-    // 1. 새로운 형태의 이놈을 만든다
-    // { id: 3, age: 21, name: "김유정" }
-    // 2. 이놈을 배열에 더한다
-
-    const newUser = {
-      id: users.length + 1,
-      age: age,
-      name: name,
+  const 추가버튼Todo = (title, content) => {
+    const todo = {
+      id: nextId.current,
+      title: title,
+      content: content,
+      completed: false
     };
+    setTodos(todos.concat(todo)); // todos배열에 concat으로 새로운 todo항목 추가, 그다음 setTodos로 업데이트
+    nextId.current += 1;
+  };
 
-    setUsers([...users, newUser]); // 불변성을 유지해서 state가 바꼈다는 것을 인식하게 하기 위해 배열을 풀었다가 다시 이놈을 더해주는것임
+  const handleToggleTodo = (id) => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
-   // 삭제
-   const clickRemoveButtonHandler = (iddd) => {
-    const newUsers = users.filter((user) => user.id !== iddd);
-    setUsers(newUsers);
+
+  const handleRemoveTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id)); // 인자로 받은 id와 다른 id들로만으로 배열 새로 생성
   };
+
+  const completedTodos = todos.filter(todo => todo.completed);
+  const activeTodos = todos.filter(todo => !todo.completed);
 
   return (
     <div>
-      <div>
-        이름 :&nbsp;
-        <input value={name} onChange={nameChangeHandler} />
-        <br />
-        {/*입력할때마다 위 const useState들에 세팅 됨  */}
-        나이 :&nbsp;
-        <input value={age} onChange={ageChangeHandler} />
-        <Button clickAddButtonHandler={clickAddButtonHandler}/>
-      </div>
-      <div className="app-style">
-        {users.map((item) => {
-          return <Userrr key={item.id} item={item} removeFunction={clickRemoveButtonHandler} />;
-        })}
-      </div>
+      <TodoInput onAdd={추가버튼Todo} />
+      <TodoList 
+        title="완료된 할 일"
+        todos={completedTodos} 
+        onToggle={handleToggleTodo} 
+        onRemove={handleRemoveTodo}
+      />
+      <TodoList 
+        title="아직 안 된 할일"
+        todos={activeTodos} 
+        onToggle={handleToggleTodo} 
+        onRemove={handleRemoveTodo}
+      />
     </div>
   );
-};
-
-
-
-
-
-
+}
 
 export default App;
