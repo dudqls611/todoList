@@ -1,56 +1,43 @@
-import React, { useState, useRef } from 'react';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
 
 
-// 메인
+import { useState } from "react";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import {v4 as uuidv4} from 'uuid';
+import TodoList from "./components/TodoList";
+
 function App() {
-  const nextId = useRef(1);
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(initialState); //initialState 초기값 준것들을 todos로 넣어줌
 
-  const 추가버튼Todo = (title, content) => {
-    const todo = {
-      id: nextId.current,
-      title: title,
-      content: content,
-      completed: false
-    };
-    setTodos(todos.concat(todo)); // todos배열에 concat으로 새로운 todo항목 추가, 그다음 setTodos로 업데이트
-    nextId.current += 1;
-  };
-
-  const handleToggleTodo = (id) => {
-    setTodos(
-      todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const handleRemoveTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id)); // 인자로 받은 id와 다른 id들로만으로 배열 새로 생성
-  };
 
   const completedTodos = todos.filter(todo => todo.completed);
   const activeTodos = todos.filter(todo => !todo.completed);
 
   return (
     <div>
-      <TodoInput onAdd={추가버튼Todo} />
-      <TodoList 
-        title="완료된 할 일"
-        todos={completedTodos} 
-        onToggle={handleToggleTodo} 
-        onRemove={handleRemoveTodo}
-      />
-      <TodoList 
-        title="아직 안 된 할일"
-        todos={activeTodos} 
-        onToggle={handleToggleTodo} 
-        onRemove={handleRemoveTodo}
-      />
+      <Header>TodoList</Header>
+      <main style={{ marginBottom: "30px", padding: "20px" }}>
+        
+        {/* setTodos를 Input으로 props보내줌 */}
+        <Input setTodos={setTodos}></Input>
+
+        {/* 할일, 완료한 일이니까 두개 만듦 */}
+        {/* true, false, todos를 TodoList로 props보내줌 */}
+        {/* setTodos를 TodoList -> Todo로 props 보내줌 props드릴링이라고함*/}
+        <TodoList isActive={true} todos={todos} setTodos={setTodos}></TodoList>  
+        <TodoList isActive={false} todos={todos} setTodos={setTodos}></TodoList>
+
+      </main>
+
+      
     </div>
   );
 }
 
 export default App;
+
+const initialState = [
+  { title: "리엑트", contents: "어려웡", isDone: false, id: uuidv4() },
+  { title: "리덕스", contents: "어려웡", isDone: false, id: uuidv4() },
+  { title: "자바스크립트", contents: "어려웡", isDone: true, id: uuidv4() }
+];
