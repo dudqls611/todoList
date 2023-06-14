@@ -22,7 +22,7 @@ function App() {
   const handleToggleTodo = (id) => {
     setTodos(
       todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo // 기존의 todo가져와서 todo.completed되면 !반대로 바꿔줌
       )
     );
   };
