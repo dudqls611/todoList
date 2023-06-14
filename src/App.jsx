@@ -26,7 +26,8 @@ const App = () => {
       content: content
     }
     setInput([...users, newUser]);
-   
+    setTitle('');
+    setContent('');
   }
 
 
