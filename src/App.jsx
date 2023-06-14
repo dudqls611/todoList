@@ -24,7 +24,7 @@ const App = () => {
 
   // 추가
   const clickAddButtonHandler = () => {
-    // 1. 새로운 형태의 이놈을 만든다
+    // 1. 새로운 형태의 이놈을 만든다dddddddddddddddddddddddddddddddd
     // { id: 3, age: 21, name: "김유정" }
     // 2. 이놈을 배열에 더한다
 
