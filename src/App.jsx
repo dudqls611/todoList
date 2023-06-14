@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import Button from "./components/Button";
+import Userrr from "./components/User";
 
 const App = () => {
   const [users, setUsers] = useState([
@@ -49,7 +51,7 @@ const App = () => {
         {/*입력할때마다 위 const useState들에 세팅 됨  */}
         나이 :&nbsp;
         <input value={age} onChange={ageChangeHandler} />
-        <button onClick={clickAddButtonHandler}>추가</button>
+        <Button clickAddButtonHandler={clickAddButtonHandler}/>
       </div>
       <div className="app-style">
         {users.map((item) => {
@@ -61,16 +63,9 @@ const App = () => {
 };
 
 
-//하위 컴포넌트
-const Userrr = ({item, removeFunction}) => {
- 
 
-  return (
-    <div key={item.id} className="component-style">
-      {item.age}-{item.name}
-      <button onClick={() => removeFunction(item.id)}>x</button>
-    </div>
-  );
-};
+
+
+
 
 export default App;
