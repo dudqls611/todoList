@@ -1,56 +1,40 @@
-import React, { useState } from 'react';
-import Button from './components/Button';
-import List from './components/List';
+import { useState } from "react";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import { V4 as uuidv4 } from "uuid";
 
-const App = () => {
-  const [users, setUsers] = useState();
-
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
+function App() {
+  const [todos, setTodos] = useState([{
+    title: '제목1',
+    contents: '내용1',
+    isDone: false, // 아직해야되는건지 끝난건지 확인
+    id: uuidv4(), // uuid 자동 생성 부여
   }
-  
-  const contentChangeHandler = (e) => {
-    setContent(e.target.value);
-  }
-
-
-  //추가기능
-  const clickAddBtnHandler = () => {
-    
-    const newUser = {
-      id: users.length + 1,
-      title: title,
-      content: content
-    }
-    setInput([...users, newUser]);
-    setTitle('');
-    setContent('');
+  {
+    title: '제목2',
+    contents: '내용2',
+    isDone: false, // 아직해야되는건지 끝난건지 확인
+    id: uuidv4(), // uuid 자동 생성 부여
+  }{
+    title: '제목3',
+    contents: '내용3',
+    isDone: false, // 아직해야되는건지 끝난건지 확인
+    id: uuidv4(), // uuid 자동 생성 부여
   }
 
-
+]);
 
   return (
     <div>
+      <Header>111111</Header>
+      <main style={{ marginBottom: "30px", padding: "20px" }}>
+        
+        <Input></Input>
+      </main>
 
-      <div>
-        제목 
-        <input value={title} onChange={titleChangeHandler} />
-        내용 
-        <input value={content} onChange={contentChangeHandler} />
-        <Button clickAddBtnHandler={clickAddBtnHandler}/>
-      </div>
-
-      <div>
-        {users.map((item) => {
-          return <List key={item.id} listFunction={item} />
-        })}
-      </div>
-
+      <footer>푸터</footer>
     </div>
   );
-};
+}
 
 export default App;
