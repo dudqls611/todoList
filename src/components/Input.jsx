@@ -15,6 +15,7 @@ function Input({setTodos}) {
       id: uuidv4()
     };
     setTodos(prev=>[...prev, newTodo]) //기존에 있던걸 prev가져와서 ...prev로 찢어주고 거기에 newTodo추가해줌
+    
   };
   const titleChange = (e) => {
     setTitle(e.target.value); // 값을 넣어서 변화시켜줌

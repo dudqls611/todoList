@@ -10,7 +10,10 @@ function App() {
 
   return (
     <div>
-      <header>TodoList 김영빈</header>
+      <header>
+        <div>TodoList 김영빈</div>
+        <div>React</div>
+      </header>
       <main style={{ marginBottom: "30px", padding: "20px" }}>
         
         {/* setTodos를 Input으로 props보내줌 */}
