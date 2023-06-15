@@ -1,7 +1,6 @@
 
 
 import { useState } from "react";
-import Header from "./components/Header";
 import Input from "./components/Input";
 import {v4 as uuidv4} from 'uuid';
 import TodoList from "./components/TodoList";
@@ -10,12 +9,12 @@ function App() {
   const [todos, setTodos] = useState(initialState); //initialState 초기값 준것들을 todos로 넣어줌
 
 
-  const completedTodos = todos.filter(todo => todo.completed);
-  const activeTodos = todos.filter(todo => !todo.completed);
+  // const completedTodos = todos.filter(todo => todo.completed);
+  // const activeTodos = todos.filter(todo => !todo.completed);
 
   return (
     <div>
-      <Header>TodoList</Header>
+      <header>TodoList 김영빈</header>
       <main style={{ marginBottom: "30px", padding: "20px" }}>
         
         {/* setTodos를 Input으로 props보내줌 */}
