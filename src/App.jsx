@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="layout">
       <header>
-        <div>TodoList 김영빈</div>
+        <div className="titleName">TodoList 김영빈</div>
         <div>React</div>
       </header>
       <main>
@@ -21,8 +21,14 @@ function App() {
         {/* 할일, 완료한 일이니까 두개 만듦 */}
         {/* true, false, todos를 TodoList로 props보내줌 */}
         {/* setTodos를 TodoList -> Todo로 props 보내줌 props드릴링이라고함*/}
-        <TodoList isActive={true} todos={todos} setTodos={setTodos}></TodoList>
-        <TodoList isActive={false} todos={todos} setTodos={setTodos}></TodoList>
+        <div className="todoListBox">
+          <div className="workingBox">
+            <TodoList isActive={true} todos={todos} setTodos={setTodos}></TodoList>
+          </div>
+          <div className="doneBox">
+            <TodoList isActive={false} todos={todos} setTodos={setTodos}></TodoList>
+          </div>
+        </div>
       </main>
     </div>
   );
@@ -35,4 +41,3 @@ const initialState = [
 ];
 
 export default App;
-

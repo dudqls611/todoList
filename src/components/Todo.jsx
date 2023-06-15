@@ -1,3 +1,5 @@
+import "../style/Todo.css";
+
 function Todo({ item, isActive, setTodos }) {
   const deleteClick = () => {
     // 바꿔주려면 setTodos가져와야함
@@ -19,11 +21,19 @@ function Todo({ item, isActive, setTodos }) {
   };
 
   return (
-    <div>
-      <h5>{item.title}</h5>
-      <p>{item.contents}</p>
-      <button onClick={switchClick}>{isActive ? "완료" : "취소"}</button>
-      <button onClick={deleteClick}>삭제</button>
+    <div className="listBox">
+      <div className="itemBox">
+        <h5>제목 : {item.title}</h5>
+        <p>{item.contents}</p>
+      </div>
+      <div className="btnBox">
+        <button className="switchBtn" onClick={switchClick}>
+          {isActive ? "완료" : "취소"}
+        </button>
+        <button className="delBtn" onClick={deleteClick}>
+          삭제
+        </button>
+      </div>
     </div>
   );
 }

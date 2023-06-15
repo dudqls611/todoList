@@ -1,4 +1,5 @@
 import Todo from "./Todo";
+import "../style/TodoList.css";
 
 function TodoList({ todos, isActive, setTodos }) {
   return (

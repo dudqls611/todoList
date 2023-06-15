@@ -1,5 +1,6 @@
 body {
-  background-color: #fff;
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+  color: #fff;
 }
 .layout {
   max-width: 1200px;
@@ -12,4 +13,38 @@ header {
   padding: 30px;
   font-size: 50px;
   font-weight: bold;
+  color: rgb(247, 226, 223);
+}
+.titleName {
+  animation-name: typing;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; /*끝나고 나서 모습 유지하게 해줌*/
+  color: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 400px;
+    color: rgb(247, 226, 223);
+
+  }
+}
+
+.todoListBox {
+  display: flex;
+}
+.workingBox, .doneBox {
+  width: 45%;
+}
+.workingBox {
+  margin: 0 auto;
+}
+.doneBox {
+  margin: 0 auto;
 }

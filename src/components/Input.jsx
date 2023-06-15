@@ -14,7 +14,7 @@ function Input({ setTodos }) {
       title,
       contents,
       isDone: false,
-      id: uuidv4()
+      id: uuidv4(),
     };
     setTodos((prev) => [...prev, newTodo]); //기존에 있던걸 prev가져와서 ...prev로 찢어주고 거기에 newTodo추가해줌
     setTitle("");
@@ -28,22 +28,19 @@ function Input({ setTodos }) {
   };
 
   return (
-    //form 태그의 onSubmit 이용
+    //form 태그의 onSubmit 이용, 엔터쳐도 됨
     <form onSubmit={handleSubmitClick}>
       {/* 변화가 있을때 useState 감지해서 랜더링 해준다 */}
-      <div className="input-group">
-        <label className="form-label">제목</label>
-        <input value={title} onChange={titleChange}></input>
-        <label className="form-label">내용</label>
-        <input value={contents} onChange={contentsChange}></input>
+      <div className="inputBox">
+        <div className="input-group">
+          <label className="form-label">제목</label>
+          <input value={title} onChange={titleChange}></input>
+          <label className="form-label">내용</label>
+          <input value={contents} onChange={contentsChange}></input>
+          <button>추가</button>
+        </div>
       </div>
-      <button>추가</button>
 
-
-
-      {/* 제목  <input value={title} onChange={titleChange}></input>
-      내용  <input value={contents} onChange={contentsChange}></input>
-      <button>추가</button> */}
     </form>
   );
 }
