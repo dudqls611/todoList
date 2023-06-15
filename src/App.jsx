@@ -9,8 +9,6 @@ function App() {
   const [todos, setTodos] = useState(initialState); //initialState 초기값 준것들을 todos로 넣어줌
 
 
-  // const completedTodos = todos.filter(todo => todo.completed);
-  // const activeTodos = todos.filter(todo => !todo.completed);
 
   return (
     <div>
