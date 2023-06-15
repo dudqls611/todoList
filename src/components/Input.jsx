@@ -40,7 +40,6 @@ function Input({ setTodos }) {
           <button>추가</button>
         </div>
       </div>
-
     </form>
   );
 }
