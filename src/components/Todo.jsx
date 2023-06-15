@@ -21,7 +21,7 @@ function Todo({ item, isActive, setTodos }) {
   return (
     <div>
       <h5>{item.title}</h5>
-      <p>{item.contests}</p>
+      <p>{item.contents}</p>
       <button onClick={switchClick}>{isActive ? "완료" : "취소"}</button>
       <button onClick={deleteClick}>삭제</button>
     </div>
