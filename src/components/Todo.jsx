@@ -1,5 +1,7 @@
 import "../style/Todo.css";
 
+// props drilling으로 3개 값 가져옴 - 작은 규모일 경우 쉽고 빠르고 파악 및 수정이 용이한게 장점(큰 규모의 경우 반대가 됨)
+// 단점 해결법 - props.children 사용하면 됨
 function Todo({ item, isActive, setTodos }) {
   const deleteClick = () => {
     // 바꿔주려면 setTodos가져와야함

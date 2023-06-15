@@ -9,6 +9,13 @@ function Input({ setTodos }) {
   const handleSubmitClick = (e) => {
     e.preventDefault(); // form submit이 가져오면서 초기화를 하는데 이걸로 초기화를 막아줌
 
+    // 제목이나 내용이 비어 있을 경우 알림을 보내고 함수를 종료
+    // 빈 문자열은 false로 간주 -> ! 로 false를 true로 처리시키는 것
+    if (!title.trim() || !contents.trim()) {
+      alert("제목과 내용을 모두 입력해주세요.");
+      return;
+    }
+    
     const newTodo = {
       //새롭게 생성될 newTodo
       title,
