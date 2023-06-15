@@ -1,0 +1,50 @@
+.listBox {
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  justify-content: space-around;
+  color: rgb(247, 226, 223);
+}
+
+.itemBox {
+  margin-bottom: 20px;
+}
+.itemBox h5 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #181a1a;
+  padding: 10px;
+  border-radius: 15px;
+}
+.btnBox {
+  text-align: center;
+}
+button {
+  width: 50px;
+  padding: 4px 9px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.switchBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: whitesmoke;
+}
+.switchBtn:hover {
+  background-color: rgba(247, 226, 223, 1);
+  color: black;
+}
+.delBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: whitesmoke;
+}
+.delBtn:hover {
+  background-color: rgba(247, 226, 223, 1);
+  color: black;
+}

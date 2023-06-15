@@ -1,0 +1,44 @@
+.inputBox {
+  margin: 20px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #181a1a;
+  color: rgb(247, 226, 223);
+}
+
+.input-group button {
+  width: 100px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 5px;
+  background-color:rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: whitesmoke;
+  font-size: 15px;
+}
+
+.input-group button:hover {
+  background-color:rgba(247, 226, 223, 1);
+  color: black;
+}

@@ -1,11 +1,10 @@
-
 import Todo from "./Todo";
-
+import "../style/TodoList.css";
 
 function TodoList({ todos, isActive, setTodos }) {
   return (
     <>
-      <h4>{isActive === true ? "해아할거" : "완료된것"}</h4>
+      <h4>{isActive === true ? "Working.." : "Done..!!"}</h4>
       {todos
         // todos의 isDone 값은 defalt로 false값이고 그 false가 아닌 거만 보이게하면
         // isActive가 true인 곳에서만 map을 돌리고 return 하면 출력이됨.
@@ -14,8 +13,8 @@ function TodoList({ todos, isActive, setTodos }) {
         .map((item) => {
           return (
             //item, isActive, setTodos를 Todo로  props해줌
-            <Todo item={item} isActive={isActive} setTodos={setTodos}></Todo> 
-          )
+            <Todo item={item} isActive={isActive} setTodos={setTodos}></Todo>
+          );
         })}
     </>
   );
