@@ -19,12 +19,14 @@ function App() {
         <Input setTodos={setTodos}></Input>
 
         {/* 할일, 완료한 일이니까 두개 만듦 */}
-        {/* true, false, todos를 TodoList로 props보내줌 */}
-        {/* setTodos를 TodoList -> Todo로 props 보내줌 props드릴링이라고함*/}
         <div className="todoListBox">
           <div className="workingBox">
+            {/* true, false, todos를 TodoList로 props보내줌 */}
+            {/* setTodos를 TodoList -> Todo로 props 보내줌 props드릴링이라고함*/}
+            {/* Working 구역 */}
             <TodoList isActive={true} todos={todos} setTodos={setTodos}></TodoList>
           </div>
+          {/* Done 구역 */}
           <div className="doneBox">
             <TodoList isActive={false} todos={todos} setTodos={setTodos}></TodoList>
           </div>
