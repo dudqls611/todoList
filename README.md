@@ -20,6 +20,7 @@ https://zerobeen-todolist.netlify.app/
 - 입력할 제목과 내용을 받는 컴포넌트.
 - useState를 이용하여 변하는 값들을 받습니다.
 - input이 빈칸일 경우 값을 입력하게끔 alert가 뜹니다.
+- uuid를 이용하여 id값을 부여합니다.
 
 #### TodoList
 - 삼항연산자를 이용하여 true, false를 판단한 후 Working 구역과 Done 구역으로 배치합니다.

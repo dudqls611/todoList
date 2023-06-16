@@ -16,8 +16,8 @@ function Input({ setTodos }) {
       return;
     }
     
+    //인풋창에 입력하면 새롭게 생성될 newTodo
     const newTodo = {
-      //새롭게 생성될 newTodo
       title,
       contents,
       isDone: false,
@@ -27,6 +27,8 @@ function Input({ setTodos }) {
     setTitle("");
     setContents(""); // 입력 다했으니까 인풋창 초기화
   };
+
+  // 인풋창 변화 감지
   const titleChange = (e) => {
     setTitle(e.target.value); // 값을 넣어서 변화시켜줌
   };
@@ -41,6 +43,7 @@ function Input({ setTodos }) {
       <div className="inputBox">
         <div className="input-group">
           <label className="form-label">제목</label>
+          {/* useState title,contents 연결 */}
           <input value={title} onChange={titleChange}></input>
           <label className="form-label">내용</label>
           <input value={contents} onChange={contentsChange}></input>
